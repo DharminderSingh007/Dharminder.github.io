@@ -1,4 +1,521 @@
-<!DOCTYPE html>
+<style>
+  /* Add these new CSS variables for vibrant colors */
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --accent-color: #e74c3c;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --text-color: #333;
+
+    /* New vibrant colors */
+    --vibrant-purple: #8e44ad;
+    --vibrant-orange: #e67e22;
+    --vibrant-green: #27ae60;
+    --vibrant-pink: #ff4f81;
+    --vibrant-teal: #1abc9c;
+  }
+
+  /* Add gradient background to the body */
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+
+  /* Update section backgrounds with vibrant colors */
+  section:nth-child(odd) {
+    background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+  }
+
+  section:nth-child(even) {
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  }
+
+  /* Skills section with vibrant background */
+  #skills {
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    color: white;
+  }
+
+  /* About section with gradient */
+  #about {
+    background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  }
+
+  /* Update hero section with more vibrant gradient */
+  .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)),
+                url('your-modern-background.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Add animated gradient overlay to hero */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(125deg,
+      rgba(240, 147, 251, 0.4) 0%,
+      rgba(245, 87, 108, 0.4) 50%,
+      rgba(79, 172, 254, 0.4) 100%);
+    z-index: -1;
+    animation: gradientBG 15s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Update section headers to work with new backgrounds */
+  section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: inherit;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  }
+
+  /* Make skills cards stand out with vibrant borders */
+  .skill {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    border-bottom: 5px solid var(--vibrant-purple);
+    color: var(--dark-color);
+  }
+
+  .skill:nth-child(2n) {
+    border-bottom: 5px solid var(--vibrant-orange);
+  }
+
+  .skill:nth-child(3n) {
+    border-bottom: 5px solid var(--vibrant-green);
+  }
+
+  .skill:nth-child(4n) {
+    border-bottom: 5px solid var(--vibrant-pink);
+  }
+
+  .skill:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  }
+</style><style>
+  /* Add these new CSS variables for vibrant colors */
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --accent-color: #e74c3c;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --text-color: #333;
+
+    /* New vibrant colors */
+    --vibrant-purple: #8e44ad;
+    --vibrant-orange: #e67e22;
+    --vibrant-green: #27ae60;
+    --vibrant-pink: #ff4f81;
+    --vibrant-teal: #1abc9c;
+  }
+
+  /* Add gradient background to the body */
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+
+  /* Update section backgrounds with vibrant colors */
+  section:nth-child(odd) {
+    background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+  }
+
+  section:nth-child(even) {
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  }
+
+  /* Job categories section styling */
+  #job-categories {
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 100px 20px;
+  }
+
+  .job-category {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .job-category h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+  }
+
+  .job-titles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .job-title {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .job-title:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Skills section with vibrant background and categories */
+  #skills {
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 100px 20px;
+  }
+
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .skill-category {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .skill-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill-tag {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .skill-tag:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Update hero section */
+  .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)),
+                url('your-modern-background.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Add animated gradient overlay to hero */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(125deg,
+      rgba(240, 147, 251, 0.4) 0%,
+      rgba(245, 87, 108, 0.4) 50%,
+      rgba(79, 172, 254, 0.4) 100%);
+    z-index: -1;
+    animation: gradientBG 15s ease infinite;
+    background-size: 400% 400%;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+</style>
+
+<!-- Add this section for Job Titles after your Hero section -->
+<section id="job-categories">
+  <div class="container">
+    <h2>Professional Roles</h2>
+
+    <div class="job-category">
+      <h3>Leadership & Senior Roles</h3>
+      <div class="job-titles">
+        <span class="job-title">Lead SDET</span>
+        <span class="job-title">Principal SDET</span>
+        <span class="job-title">Senior SDET</span>
+        <span class="job-title">Lead Automation Engineer</span>
+        <span class="job-title">QA Automation Lead</span>
+        <span class="job-title">Senior Software Engineer in Test</span>
+      </div>
+    </div>
+
+    <div class="job-category">
+      <h3>Mobile Testing Specialization</h3>
+      <div class="job-titles">
+        <span class="job-title">Senior Mobile SDET</span>
+        <span class="job-title">Mobile Automation Engineer</span>
+        <span class="job-title">Senior Mobile QA Engineer</span>
+        <span class="job-title">Mobile Test Automation Engineer</span>
+        <span class="job-title">Senior Mobile Test Engineer (iOS & Android)</span>
+        <span class="job-title">Senior QA Engineer – Mobile & Web</span>
+      </div>
+    </div>
+
+    <div class="job-category">
+      <h3>Cloud & DevOps Testing</h3>
+      <div class="job-titles">
+        <span class="job-title">Cloud QA Engineer</span>
+        <span class="job-title">Senior Cloud SDET</span>
+        <span class="job-title">SDET – DevOps & CI/CD</span>
+        <span class="job-title">Senior QA Engineer – CI/CD & Automation</span>
+        <span class="job-title">Software Test Engineer – DevOps & Cloud</span>
+        <span class="job-title">Senior Test Engineer – Kubernetes & Cloud Automation</span>
+      </div>
+    </div>
+
+    <div class="job-category">
+      <h3>Specialized Testing Domains</h3>
+      <div class="job-titles">
+        <span class="job-title">AI Test Automation Engineer</span>
+        <span class="job-title">Generative AI QA Engineer</span>
+        <span class="job-title">Senior Performance Test Engineer</span>
+        <span class="job-title">Senior Load & Performance Engineer</span>
+        <span class="job-title">Senior Automation Engineer</span>
+        <span class="job-title">Senior QA Automation Engineer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Replace or update your Skills section with this enhanced version -->
+<section id="skills">
+  <div class="container">
+    <h2>Technical Expertise</h2>
+
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3>Test Automation Frameworks</h3>
+        <div class="skills-list">
+          <span class="skill-tag">Selenium</span>
+          <span class="skill-tag">Appium</span>
+          <span class="skill-tag">Cypress</span>
+          <span class="skill-tag">Playwright</span>
+          <span class="skill-tag">TestNG</span>
+          <span class="skill-tag">JUnit</span>
+          <span class="skill-tag">NUnit</span>
+          <span class="skill-tag">PyTest</span>
+          <span class="skill-tag">Robot Framework</span>
+          <span class="skill-tag">Cucumber</span>
+          <span class="skill-tag">SpecFlow</span>
+          <span class="skill-tag">Espresso</span>
+          <span class="skill-tag">XCTest</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>Programming Languages</h3>
+        <div class="skills-list">
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">Swift</span>
+          <span class="skill-tag">Kotlin</span>
+          <span class="skill-tag">Groovy</span>
+          <span class="skill-tag">Shell Scripting</span>
+          <span class="skill-tag">PowerShell</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>Mobile Testing</h3>
+        <div class="skills-list">
+          <span class="skill-tag">iOS Testing</span>
+          <span class="skill-tag">Android Testing</span>
+          <span class="skill-tag">Appium</span>
+          <span class="skill-tag">XCUITest</span>
+          <span class="skill-tag">Espresso</span>
+          <span class="skill-tag">Detox</span>
+          <span class="skill-tag">BrowserStack</span>
+          <span class="skill-tag">Sauce Labs</span>
+          <span class="skill-tag">Firebase Test Lab</span>
+          <span class="skill-tag">Mobile Device Management</span>
+          <span class="skill-tag">Responsive Design Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>DevOps & CI/CD</h3>
+        <div class="skills-list">
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">CircleCI</span>
+          <span class="skill-tag">Travis CI</span>
+          <span class="skill-tag">Azure DevOps</span>
+          <span class="skill-tag">GitLab CI</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Ansible</span>
+          <span class="skill-tag">Infrastructure as Code</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>Cloud Services</h3>
+        <div class="skills-list">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">Google Cloud</span>
+          <span class="skill-tag">AWS Lambda Testing</span>
+          <span class="skill-tag">Cloud Infrastructure Testing</span>
+          <span class="skill-tag">Microservices Testing</span>
+          <span class="skill-tag">Serverless Testing</span>
+          <span class="skill-tag">Cloud Security Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>Performance Testing</h3>
+        <div class="skills-list">
+          <span class="skill-tag">JMeter</span>
+          <span class="skill-tag">Gatling</span>
+          <span class="skill-tag">LoadRunner</span>
+          <span class="skill-tag">Locust</span>
+          <span class="skill-tag">k6</span>
+          <span class="skill-tag">BlazeMeter</span>
+          <span class="skill-tag">Performance Monitoring</span>
+          <span class="skill-tag">Load Testing</span>
+          <span class="skill-tag">Stress Testing</span>
+          <span class="skill-tag">Scalability Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>API Testing</h3>
+        <div class="skills-list">
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">REST Assured</span>
+          <span class="skill-tag">SoapUI</span>
+          <span class="skill-tag">Karate DSL</span>
+          <span class="skill-tag">API Blueprint</span>
+          <span class="skill-tag">Swagger</span>
+          <span class="skill-tag">GraphQL Testing</span>
+          <span class="skill-tag">Contract Testing</span>
+          <span class="skill-tag">Pact</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>AI & ML Testing</h3>
+        <div class="skills-list">
+          <span class="skill-tag">AI Model Validation</span>
+          <span class="skill-tag">ML Testing Frameworks</span>
+          <span class="skill-tag">Generative AI Testing</span>
+          <span class="skill-tag">Data Validation</span>
+          <span class="skill-tag">TensorFlow Testing</span>
+          <span class="skill-tag">NLP Testing</span>
+          <span class="skill-tag">Computer Vision Testing</span>
+          <span class="skill-tag">AI-Powered Test Automation</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>Test Management & Tools</h3>
+        <div class="skills-list">
+          <span class="skill-tag">JIRA</span>
+          <span class="skill-tag">TestRail</span>
+          <span class="skill-tag">Zephyr</span>
+          <span class="skill-tag">qTest</span>
+          <span class="skill-tag">Xray</span>
+          <span class="skill-tag">ALM</span>
+          <span class="skill-tag">Test Case Management</span>
+          <span class="skill-tag">Defect Management</span>
+          <span class="skill-tag">Test Strategy Development</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>Security Testing</h3>
+        <div class="skills-list">
+          <span class="skill-tag">OWASP</span>
+          <span class="skill-tag">ZAP</span>
+          <span class="skill-tag">Burp Suite</span>
+          <span class="skill-tag">Penetration Testing</span>
+          <span class="skill-tag">Vulnerability Assessment</span>
+          <span class="skill-tag">SAST</span>
+          <span class="skill-tag">DAST</span>
+          <span class="skill-tag">Security Compliance Testing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -32,7 +549,7 @@
       scroll-behavior: smooth;
     }
     a { text-decoration: none; color: inherit; }
-    
+
     /* Header / Navigation */
     header {
       position: fixed;
@@ -64,7 +581,7 @@
       transition: color 0.3s ease;
     }
     .nav-menu li a:hover { color: var(--primary-color); }
-    
+
     /* Hero Section */
     .hero {
       height: 100vh;
@@ -100,7 +617,7 @@
       from { opacity: 0; transform: translateY(-50px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    
+
     /* Sections */
     section { padding: 80px 20px; }
     section h2 {
@@ -109,7 +626,7 @@
       font-size: 2.5rem;
       color: var(--dark-color);
     }
-    
+
     /* About Section */
     #about p {
       max-width: 800px;
@@ -117,7 +634,7 @@
       text-align: center;
       font-size: 1.1rem;
     }
-    
+
     /* Skills Section */
     .skill-grid {
       display: grid;
@@ -138,7 +655,7 @@
       font-size: 1.3rem;
       color: var(--secondary-color);
     }
-    
+
     /* Projects Section */
     .project-grid {
       display: grid;
@@ -178,7 +695,7 @@
       transition: color 0.3s ease;
     }
     .project-content a:hover { color: var(--accent-color); }
-    
+
     /* Testimonials Section */
     .testimonial {
       max-width: 800px;
@@ -194,7 +711,7 @@
       font-weight: 600;
       color: var(--secondary-color);
     }
-    
+
     /* Blog Section */
     .blog-post {
       background: #fff;
@@ -221,7 +738,7 @@
       transition: color 0.3s ease;
     }
     .blog-post a:hover { color: var(--accent-color); }
-    
+
     /* Contact Section */
     .contact-info {
       text-align: center;
@@ -234,7 +751,7 @@
       transition: color 0.3s ease;
     }
     .contact-info a:hover { color: var(--accent-color); }
-    
+
     /* Footer */
     footer {
       background: var(--dark-color);
@@ -249,7 +766,7 @@
       transition: color 0.3s ease;
     }
     footer .social-icons a:hover { color: var(--primary-color); }
-    
+
     /* Scroll to Top Button */
     #scrollTopBtn {
       position: fixed;
@@ -285,7 +802,7 @@
       </nav>
     </div>
   </header>
-  
+
   <!-- Hero Section -->
   <section id="hero" class="hero">
     <div class="container">
@@ -294,7 +811,7 @@
       <a class="download-btn animate__animated animate__pulse animate__infinite" href="DharminderSingh_Resume.pdf" download>Download Resume</a>
     </div>
   </section>
-  
+
   <!-- About Section -->
   <section id="about">
     <div class="container">
@@ -304,9 +821,11 @@
       </p>
     </div>
   </section>
-  
+
   <!-- Skills Section -->
-  <section id="skills">
+  <section id=<div class="skills">
+    <!-- Content here -->
+    </div>
     <div class="container">
       <h2 data-aos="fade-up">Skills</h2>
       <div class="skill-grid">
@@ -337,7 +856,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Projects Section -->
   <section id="projects">
     <div class="container">
@@ -366,7 +885,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Testimonials Section -->
   <section id="testimonials">
     <div class="container">
@@ -377,7 +896,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Blog Section -->
   <section id="blog">
     <div class="container">
@@ -394,7 +913,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
@@ -409,7 +928,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -420,10 +939,10 @@
       </div>
     </div>
   </footer>
-  
+
   <!-- Scroll to Top Button -->
   <div id="scrollTopBtn"><i class="fas fa-chevron-up"></i></div>
-  
+
   <!-- Scripts: AOS, Typed.js, and Custom JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
@@ -431,21 +950,21 @@
       duration: 1000,
       once: true
     });
-    
+
     // Sticky header and scroll-to-top button
     window.addEventListener('scroll', function() {
       const header = document.getElementById('header');
       const scrollBtn = document.getElementById('scrollTopBtn');
-      if (window.scrollY > 50) header.classList.add('sticky'); 
+      if (window.scrollY > 50) header.classList.add('sticky');
       else header.classList.remove('sticky');
       scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
-    
+
     // Scroll-to-top functionality
     document.getElementById('scrollTopBtn').addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    
+
     // Initialize Typed.js for dynamic hero text
     new Typed('#typed', {
       strings: ['SDET & QA Engineer', 'Quality Automation Specialist', 'Test Framework Innovator'],
@@ -456,3 +975,9 @@
   </script>
 </body>
 </html>
+<style>...</style><style>...</style>background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)),
+url('your-modern-background.jpg') no-repeat center center/cover;animation: gradientBG 15s ease infinite;backdrop-filter: blur(5px);section:nth-child(odd) { /* styles */ }
+section:nth-child(even) { /* styles */ }
+#skills { /* styles */ }
+#about { /* styles */ }
+#job-categories { /* styles */ }
