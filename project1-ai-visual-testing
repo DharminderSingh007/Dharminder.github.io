@@ -1,92 +1,3 @@
-1. AI-Powered Visual Testing (Java)
-Folder: project1-ai-visual-testing
-
-<details> <summary>Click to expand files</summary>
-pom.xml
-xml
-Copy
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example.visual</groupId>
-    <artifactId>ai-visual-testing</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <dependencies>
-        <!-- Selenium -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.8.3</version>
-        </dependency>
-
-        <!-- JUnit 4 (or 5) -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Image Comparison (e.g., OpenCV or a simpler library).
-             For brevity, let's use a minimal library or a custom approach. -->
-        <dependency>
-            <groupId>com.github.romankh3</groupId>
-            <artifactId>image-comparison</artifactId>
-            <version>4.4.0</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <!-- Maven Surefire for test running -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
-            </plugin>
-        </plugins>
-    </build>
-</project>
-README.md
-markdown
-Copy
-# AI-Powered Visual Testing (Java)
-
-This project demonstrates a simple approach to visual regression testing in Java.  
-It uses Selenium for browser automation and a lightweight image comparison library to detect differences.
-
-## How It Works
-- Launches a browser (Chrome by default).
-- Navigates to a test URL (Google).
-- Captures a screenshot.
-- Compares it against a baseline image (if it exists).
-
-## Setup & Run
-1. **Install Dependencies**:
-   ```bash
-   mvn clean install
-Run Test:
-
-bash
-Copy
-mvn test
-Baseline Creation:
-
-On the first run, the test will save a baseline image if none exists, then fail intentionally.
-Re-run the test to compare new screenshots with the baseline.
-Tech Stack
-Java 8+ (or 11+)
-Selenium
-Image Comparison library
-JUnit
-arduino
-Copy
-
-### `src/test/java/AiVisualTest.java`
-```java
 package com.example.visual;
 
 import org.junit.*;
@@ -94,10 +5,13 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import com.github.romankh3.image.comparison.ImageComparison;
 import com.github.romankh3.image.comparison.ImageComparisonUtil;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
 public class AiVisualTest {
 
@@ -105,6 +19,16 @@ public class AiVisualTest {
     private static final String BASELINE = "baseline.png";
     private static final String CURRENT = "current.png";
     private static final String DIFF = "diff.png";
+
+    @BeforeClass
+    public static void setUpClass() {
+        // Set up once for the class if needed
+    }
+
+    @AfterClass
+    public static void tearDownClass() {
+        // Clean up once for the class if needed
+    }
 
     @Before
     public void setUp() {
@@ -122,12 +46,10 @@ public class AiVisualTest {
     @Test
     public void testGoogleHomeVisual() throws IOException {
         driver.get("https://www.google.com");
-        // Wait or do any interactions needed
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        // Wait for the page to load completely
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
 
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File currentFile = new File(CURRENT);
@@ -155,4 +77,3 @@ public class AiVisualTest {
         }
     }
 }
-</details>
