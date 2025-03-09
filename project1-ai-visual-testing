@@ -44,36 +44,45 @@ public class AiVisualTest {
     }
 
     @Test
-    public void testGoogleHomeVisual() throws IOException {
-        driver.get("https://www.google.com");
+    public void testGoogleHomeVisual() {
+        try {
+            driver.get("https://www.google.com");
 
-        // Wait for the page to load completely
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
+            // Wait for the page to load completely
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
 
-        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        File currentFile = new File(CURRENT);
-        org.apache.commons.io.FileUtils.copyFile(screenshot, currentFile);
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File currentFile = new File(CURRENT);
+            org.apache.commons.io.FileUtils.copyFile(screenshot, currentFile);
 
-        File baselineFile = new File(BASELINE);
-        if (!baselineFile.exists()) {
-            // Create baseline if it doesn't exist
-            org.apache.commons.io.FileUtils.copyFile(currentFile, baselineFile);
-            Assert.fail("Baseline image created. Re-run the test to compare.");
-        }
+            File baselineFile = new File(BASELINE);
+            if (!baselineFile.exists()) {
+                // Create baseline if it doesn't exist
+                org.apache.commons.io.FileUtils.copyFile(currentFile, baselineFile);
+                Assert.fail("Baseline image created. Re-run the test to compare.");
+            }
 
-        // Compare images
-        ImageComparison comparison = new ImageComparison(
-                ImageIO.read(baselineFile),
-                ImageIO.read(currentFile)
-        );
+            // Compare images
+            ImageComparison comparison = new ImageComparison(
+                    ImageIO.read(baselineFile),
+                    ImageIO.read(currentFile)
+            );
 
-        // If there's a difference, a diff image is created
-        comparison.setDestination(new File(DIFF));
-        ImageComparisonUtil.ImageComparisonResult result = comparison.compareImages();
+            // If there's a difference, a diff image is created
+            comparison.setDestination(new File(DIFF));
+            ImageComparisonUtil.ImageComparisonResult result = comparison.compareImages();
 
-        if (result.getDifferencePercent() > 0.0) {
-            Assert.fail("Visual differences found! Check diff.png");
+            if (result.getDifferencePercent() > 0.0) {
+                Assert.fail("Visual differences found! Check diff.png");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            Assert.fail("IOException occurred during test execution.");
+        } finally {
+            if (driver != null) {
+                driver.quit();
+            }
         }
     }
 }
