@@ -7,7 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AI-PoweredVisualTesting" />
+        <module name="shared" />
+        <module name="android-espresso" />
+        <module name="ios-xcuitest" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mobile-test-automation-portfolio" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

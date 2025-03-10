@@ -5,7 +5,17 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/AI-Powered Visual Testing/pom.xml" />
+        <option value="$PROJECT_DIR$/mobile-test-automation-portfolio/pom.xml" />
+        <option value="$PROJECT_DIR$/MavenAndroidEspressoTestPom.xml" />
+        <option value="$PROJECT_DIR$/MobileMavenProjectRootPom.xml" />
+        <option value="$PROJECT_DIR$/Snippet2.xml" />
+        <option value="$PROJECT_DIR$/Snippet.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/mobile-test-automation-portfolio/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
