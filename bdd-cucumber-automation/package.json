@@ -1,0 +1,15 @@
+{
+  "name": "bdd-cucumber-automation",
+  "version": "1.0.0",
+  "description": "Sample BDD automation using Cucumber.js and WebdriverIO.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "devDependencies": {
+    "@wdio/cli": "^8.31.0",
+    "@wdio/cucumber-framework": "^8.31.0",
+    "chromedriver": "^114.0.0",
+    "@cucumber/cucumber": "^7.0.0"
+  }
+}

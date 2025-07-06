@@ -1,0 +1,14 @@
+{
+  "name": "appium-mobile-automation",
+  "version": "1.0.0",
+  "description": "Sample Appium test using WebdriverIO.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "devDependencies": {
+    "webdriverio": "^8.33.2",
+    "@wdio/appium-service": "^8.33.2",
+    "appium": "^2.5.0"
+  }
+}
