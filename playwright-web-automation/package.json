@@ -1,0 +1,13 @@
+{
+  "name": "playwright-web-automation",
+  "version": "1.0.0",
+  "description": "Sample Playwright project demonstrating modern web automation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "typescript": "^5.4.3"
+  }
+}
